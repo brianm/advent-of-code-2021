@@ -7,13 +7,16 @@ fn main() -> Result<()> {
         .map(|n| n.parse().unwrap())
         .collect();
 
+    // 1 2
+    //   2 3
+    //     3 4
     let one = nums.iter().tuple_windows().filter(|(a, b)| b > a).count();
     println!("{}", one);
 
     // 1 2 3
     //   2 3 4
     //     3 4 5
-    // so 3tuple - next 3tuple is t[3] - t[0] for each 4tuple
+    // so 3tuple - next 3tuple is t[3] - t[0] for each 4tuple as interior elements cancel
     // 1 2 3 4
     //   2 3 4 5
     //     3 4 5 6
